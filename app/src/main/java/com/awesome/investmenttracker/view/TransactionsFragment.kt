@@ -38,17 +38,19 @@ class TransactionsFragment : Fragment() {
         setupSearchListeners()
 
         viewModel.filteredTransactions.observe(viewLifecycleOwner) { transactions ->
-            transactionAdapter.submitList(transactions)
+            transactionAdapter.submitList(transactions) {
+                binding.recyclerView.post {
+                    binding.recyclerView.scrollToPosition(0) 
+                }
+            }
         }
     }
 
     private fun showData() {
         val key = getString(R.string.selectedtimefilter)
-
         val selectedFilter = arguments?.getString(key)
 
         if (selectedFilter.equals(getString(R.string.v))) {
-
             selectCategory(binding.allDropdown, binding.categoryDropdown)
             viewModel.loadTransactions(getString(R.string.all_))
         } else {
@@ -57,7 +59,6 @@ class TransactionsFragment : Fragment() {
             }
         }
     }
-
 
     private fun setupRecyclerView() {
         transactionAdapter = TransactionAdapter()
@@ -82,7 +83,6 @@ class TransactionsFragment : Fragment() {
     }
 
     private fun setupSearchListeners() {
-
         binding.descriptionInput.addTextChangedListener(object : TextWatcher {
             override fun afterTextChanged(s: Editable?) {
                 filterTransactions()

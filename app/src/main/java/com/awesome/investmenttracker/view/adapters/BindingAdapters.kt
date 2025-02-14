@@ -9,6 +9,7 @@ import androidx.databinding.BindingAdapter
 import com.awesome.investmenttracker.R
 import com.awesome.investmenttracker.model.entities.TransactionResponse
 import com.awesome.investmenttracker.util.Constants.amountColor
+import com.awesome.investmenttracker.util.Constants.doubleText
 
 import com.awesome.investmenttracker.util.Constants.formattedAmount
 import com.awesome.investmenttracker.util.Constants.formattedTime
@@ -21,7 +22,7 @@ import java.util.Locale
 object BindingAdapters {
 
     @JvmStatic
-    @BindingAdapter("doubleText")
+    @BindingAdapter(doubleText)
     fun setDoubleText(view: TextView, value: Double?) {
         view.text = value?.toString() ?: view.context.getString(R.string._0_0)
     }

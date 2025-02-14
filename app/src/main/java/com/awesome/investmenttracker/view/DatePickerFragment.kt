@@ -1,6 +1,5 @@
 package com.awesome.investmenttracker.view
 
-
 import android.app.DatePickerDialog
 import android.app.Dialog
 import android.os.Bundle
@@ -14,9 +13,13 @@ class DatePickerFragment(private val onDateSelected: (String) -> Unit) : DialogF
         val month = calendar.get(Calendar.MONTH)
         val day = calendar.get(Calendar.DAY_OF_MONTH)
 
-        return DatePickerDialog(requireContext(), { _, selectedYear, selectedMonth, selectedDay ->
+        val datePickerDialog = DatePickerDialog(requireContext(), { _, selectedYear, selectedMonth, selectedDay ->
             val selectedDate = "$selectedYear-${selectedMonth + 1}-$selectedDay"
             onDateSelected(selectedDate)
         }, year, month, day)
+
+        datePickerDialog.datePicker.maxDate = calendar.timeInMillis
+
+        return datePickerDialog
     }
 }
