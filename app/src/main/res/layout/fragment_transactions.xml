@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/background"
+        android:fitsSystemWindows="true"
+        tools:context=".view.TransactionsFragment">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_32dp"
+            android:layout_marginStart="@dimen/_9dp"
+            android:layout_marginTop="@dimen/_19dp"
+            android:layout_marginEnd="@dimen/_9dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <View
+                android:layout_width="@dimen/_32dp"
+                android:layout_height="@dimen/_32dp"
+                android:layout_marginStart="@dimen/_17dp"
+                android:background="@drawable/baseline_keyboard_backspace_24"
+                android:onClick="navigateHome"
+                android:backgroundTint="@android:color/black"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/_32dp"
+                android:layout_marginStart="48dp"
+                android:layout_marginEnd="@dimen/_48dp"
+                android:fontFamily="@font/inter_medium"
+                android:text="@string/Transactions"
+                android:textColor="@android:color/black"
+                android:textSize="@dimen/_18sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <AutoCompleteTextView
+            android:id="@+id/categoryDropdown"
+            style="@style/transactionviews"
+            android:layout_width="@dimen/_96dp"
+            android:layout_height="@dimen/_40dp"
+            android:layout_marginStart="@dimen/_16dp"
+            android:background="@drawable/bg_unselected"
+            android:gravity="center"
+            android:hint="@string/Month"
+            android:inputType="none"
+
+            android:textColorHint="@color/lightblk"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <AutoCompleteTextView
+            android:id="@+id/allDropdown"
+            style="@style/transactionviews"
+            android:layout_width="@dimen/_69dp"
+            android:layout_height="@dimen/_40dp"
+            android:layout_marginStart="@dimen/_127dp"
+            android:background="@drawable/bg_unselected"
+            android:gravity="center"
+            android:hint="@string/all"
+            android:inputType="none"
+
+            android:textColorHint="@color/lightblk"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <EditText
+            android:id="@+id/descriptionInput"
+            android:layout_width="@dimen/_0dp"
+            android:layout_height="@dimen/_40dp"
+            android:layout_marginStart="@dimen/_15dp"
+            android:layout_marginTop="@dimen/_87dp"
+            android:layout_marginEnd="@dimen/_15dp"
+            android:background="@drawable/bg_unselected"
+            android:drawableStart="@drawable/baseline_search_24"
+            android:hint="@string/search"
+            android:maxLength="10"
+            android:paddingStart="@dimen/_5dp"
+            android:textColorHint="@color/lightblk"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/allDropdown"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_goneMarginEnd="@dimen/_17dp"
+
+            />
+
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_0dp"
+            android:layout_marginStart="@dimen/_15dp"
+            android:layout_marginTop="@dimen/_149dp"
+            android:layout_marginEnd="@dimen/_15dp"
+
+            android:clipToPadding="true"
+            android:paddingBottom="@dimen/_95dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+
+            tools:listitem="@layout/trans_item" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

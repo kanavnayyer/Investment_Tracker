@@ -1,0 +1,253 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.awesome.investmenttracker.viewModels.TransactionViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/darkc"
+        tools:context=".view.HomeFragment">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="351dp"
+            android:background="@drawable/gradient_back"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+
+                android:layout_width="@dimen/_88dp"
+                android:layout_height="@dimen/_37dp"
+                android:layout_marginStart="25dp"
+                android:layout_marginTop="26dp"
+                android:fontFamily="@font/inter"
+                android:text="@{viewModel.currentDate}"
+                android:textColor="@color/black"
+                android:textSize="14sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="@string/monday_9_novemeber" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginLeft="13dp"
+                android:layout_marginTop="79dp"
+                android:layout_marginRight="13dp"
+                android:background="@color/drkblk"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:layout_width="@dimen/_252dp"
+                android:layout_height="@dimen/_17dp"
+                android:layout_marginTop="@dimen/_130dp"
+                android:fontFamily="@font/inter"
+                android:gravity="center"
+                android:text="@string/account_balance"
+                android:textColor="@color/lghtg"
+                android:textSize="@dimen/_14sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:layout_width="@dimen/_328dp"
+                android:layout_height="@dimen/_48dp"
+                android:layout_marginTop="@dimen/_158dp"
+                android:fontFamily="@font/inter_medium"
+                android:gravity="center"
+                android:textColor="@color/customblk"
+                android:textSize="@dimen/_40sp"
+                app:doubleText="@{viewModel.totalBalance}"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="@string/_9400_0" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="@dimen/_164dp"
+                android:layout_height="@dimen/_80dp"
+                android:layout_marginLeft="@dimen/_18dp"
+                android:layout_marginTop="@dimen/_234dp"
+                android:layout_marginBottom="@dimen/_37dp"
+                android:background="@drawable/frame"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_27dp"
+
+                    android:layout_marginStart="@dimen/_72dp"
+                    android:layout_marginTop="@dimen/_35dp"
+                    android:layout_marginEnd="@dimen/_17dp"
+                    android:layout_marginBottom="@dimen/_16dp"
+                    android:fontFamily="@font/inter"
+
+                    android:textColor="@color/customwhite"
+                    android:textFontWeight="600"
+                    android:textSize="@dimen/_22sp"
+                    app:doubleText="@{viewModel.totalIncome}"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:text="@string/_25000" />
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="@dimen/_164dp"
+                android:layout_height="@dimen/_80dp"
+                android:layout_marginLeft="@dimen/_18dp"
+                android:layout_marginTop="@dimen/_234dp"
+                android:layout_marginEnd="@dimen/_21dp"
+                android:layout_marginBottom="@dimen/_37dp"
+                android:background="@drawable/expensesframe"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/_27dp"
+
+                    android:layout_marginStart="@dimen/_72dp"
+                    android:layout_marginTop="@dimen/_35dp"
+                    android:layout_marginEnd="@dimen/_17dp"
+                    android:layout_marginBottom="@dimen/_16dp"                    android:fontFamily="@font/inter"
+                    android:textColor="@color/customwhite"
+                    android:textFontWeight="600"
+                    android:textSize="@dimen/_22sp"
+                    app:doubleText="@{viewModel.totalExpense}"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:text="@string/_25000" />
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        <RadioGroup
+            android:id="@+id/rgTimeFilter"
+
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_34dp"
+            android:layout_marginLeft="@dimen/_7dp"
+            android:layout_marginTop="@dimen/_389dp"
+            android:layout_marginRight="@dimen/_7dp"
+            android:background="@drawable/drawable_radio_group_tab_background"
+            android:orientation="horizontal"
+
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <RadioButton
+                android:id="@+id/rbToday"
+                android:layout_width="@dimen/_0dp"
+                android:layout_height="@dimen/_35dp"
+                android:layout_weight="0.50"
+                android:background="@drawable/drawable_units_tab_selector"
+                android:button="@null"
+                android:checked="true"
+                android:gravity="center"
+                android:text="@string/today"
+                android:textColor="@drawable/drawable_units_tab_text_color_selector"
+                android:textSize="@dimen/_14sp" />
+
+            <RadioButton
+                android:id="@+id/rbWeek"
+                android:layout_width="@dimen/_0dp"
+                android:layout_height="@dimen/_35dp"
+                android:layout_weight="0.50"
+                android:background="@drawable/drawable_units_tab_selector"
+                android:button="@null"
+                android:checked="false"
+                android:gravity="center"
+                android:text="@string/week"
+                android:textColor="@drawable/drawable_units_tab_text_color_selector"
+                android:textSize="@dimen/_14sp" />
+
+
+            <RadioButton
+                android:id="@+id/rbMonth"
+                android:layout_width="@dimen/_0dp"
+                android:layout_height="@dimen/_35dp"
+                android:layout_weight="0.50"
+                android:background="@drawable/drawable_units_tab_selector"
+                android:button="@null"
+                android:checked="false"
+                android:gravity="center"
+                android:text="@string/Month"
+                android:textColor="@drawable/drawable_units_tab_text_color_selector"
+                android:textSize="@dimen/_14sp" />
+
+            <RadioButton
+                android:id="@+id/rbYear"
+                android:layout_width="@dimen/_0dp"
+                android:layout_height="@dimen/_35dp"
+                android:layout_weight="0.50"
+                android:background="@drawable/drawable_units_tab_selector"
+                android:button="@null"
+                android:checked="false"
+                android:gravity="center"
+                android:text="@string/year"
+                android:textColor="@drawable/drawable_units_tab_text_color_selector"
+                android:textSize="@dimen/_14sp" />
+        </RadioGroup>
+
+
+        <TextView
+            android:layout_width="@dimen/_128dp"
+            android:layout_height="@dimen/_17dp"
+            android:layout_marginStart="@dimen/_18dp"
+            android:layout_marginTop="@dimen/_449dp"
+            android:text="@string/recent_transaction"
+            android:onClick="navToTran"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:layout_width="@dimen/_76dp"
+            android:layout_height="@dimen/_17dp"
+            android:layout_marginTop="@dimen/_449dp"
+            android:layout_marginEnd="@dimen/_8dp"
+            android:text="View All"
+            android:gravity="center"
+            android:onClick="navigateTransactions"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_0dp"
+            android:layout_marginStart="@dimen/_17dp"
+            android:layout_marginTop="@dimen/_501dp"
+            android:layout_marginEnd="@dimen/_17dp"
+            android:clipToPadding="true"
+            android:paddingBottom="@dimen/_95dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:listitem="@layout/home_trans" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

@@ -1,0 +1,74 @@
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="transaction"
+            type="com.awesome.investmenttracker.model.entities.TransactionResponse" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginBottom="@dimen/_22dp"
+        android:background="@drawable/rounded_background">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_90dp"
+            android:layout_margin="@dimen/_9dp"
+            android:padding="16dp">
+
+            <TextView
+
+                android:layout_width="@dimen/_73dp"
+                android:layout_height="@dimen/_22dp"
+                android:text="@{transaction.category}"
+                android:textSize="@dimen/_16sp"
+
+
+                tools:text="@string/shopping"
+                android:textColor="@android:color/black"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/_16sp"
+                app:formattedAmount="@{transaction}"
+                app:amountColor="@{transaction}"
+                android:textStyle="bold"
+                tools:text="@string/_5000"
+
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/tvDescription"
+                android:layout_width="113dp"
+                android:layout_height="wrap_content"
+                android:text="@{transaction.description}"
+                android:textSize="@dimen/_13sp"
+                tools:text="@string/description"
+                android:textColor="@android:color/darker_gray"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:formattedTime="@{transaction.time}"
+                android:textSize="14sp"
+                tools:text="@string/_10_00am"
+                android:textColor="@android:color/darker_gray"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintBottom_toBottomOf="@id/tvDescription" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </LinearLayout>
+</layout>

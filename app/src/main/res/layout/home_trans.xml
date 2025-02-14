@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="transaction"
+            type="com.awesome.investmenttracker.model.entities.TransactionResponse" />
+    </data>
+
+<androidx.constraintlayout.widget.ConstraintLayout
+
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+  android:layout_marginBottom="@dimen/_20dp"
+    app:transactionBackground="@{transaction}"
+    tools:background="@drawable/border_background"
+
+    android:padding="@dimen/_10dp">
+
+    <ImageView
+        android:id="@+id/transactionIcon"
+        android:layout_width="@dimen/_42dp"
+        android:layout_height="@dimen/_42dp"
+        tools:background="@drawable/red"
+        android:padding="@dimen/_8dp"
+        app:transactionTypeIcon="@{transaction.type}"
+        app:transactionTypeBackground="@{transaction.type}"
+        android:scaleType="centerInside"
+        tools:src="@drawable/baseline_arrow_downward_24"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent" />
+
+    <TextView
+
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingStart="@dimen/_15dp"
+        tools:text="@string/_5000"
+        android:text='@{"₹ " +transaction.amount}'
+        android:textColor="@android:color/black"
+        android:textSize="@dimen/_18sp"
+        android:textStyle="bold"
+android:layout_marginStart="@dimen/_57dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+       app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@{transaction.category}"
+        tools:text="@string/food"
+        android:textColor="@android:color/black"
+        android:textSize="@dimen/_14sp"
+
+        android:layout_marginEnd="@dimen/_14dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

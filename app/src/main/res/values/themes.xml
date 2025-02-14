@@ -1,0 +1,11 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+    <style name="Base.Theme.InvestmentTracker" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+<!--        <resources>-->
+<!--            <color name="black">#000000</color>-->
+<!--            <color name="white">#FFFFFF</color>-->
+<!--        </resources>-->
+    </style>
+
+    <style name="Theme.InvestmentTracker" parent="Base.Theme.InvestmentTracker" />
+</resources>

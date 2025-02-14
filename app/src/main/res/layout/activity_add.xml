@@ -1,0 +1,217 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.awesome.investmenttracker.viewModels.TransactionViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/background"
+        android:fitsSystemWindows="true"
+        tools:context=".view.AddTransactionActivity">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_32dp"
+            android:layout_marginStart="@dimen/_9dp"
+            android:layout_marginTop="@dimen/_19dp"
+            android:layout_marginEnd="@dimen/_9dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <View
+                android:layout_width="@dimen/_32dp"
+                android:layout_height="@dimen/_32dp"
+                android:background="@drawable/baseline_keyboard_backspace_24"
+                android:onClick="navigateHome"
+                android:backgroundTint="@android:color/black"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/_32dp"
+                android:layout_marginStart="48dp"
+                android:layout_marginEnd="@dimen/_48dp"
+                android:fontFamily="@font/inter_medium"
+                android:text="@string/add_transaction"
+                android:textColor="@android:color/black"
+                android:textSize="@dimen/_18sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <TextView
+            android:layout_width="102dp"
+            android:layout_height="@dimen/_22dp"
+            android:layout_marginStart="@dimen/_21dp"
+            android:layout_marginTop="@dimen/_111dp"
+            android:text="@string/how_much"
+            android:textColor="@color/darkgry"
+            android:textSize="@dimen/_18sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <View
+            android:layout_width="@dimen/_56dp"
+            android:layout_height="@dimen/_66dp"
+            android:layout_marginStart="@dimen/_10dp"
+            android:layout_marginTop="@dimen/_142dp"
+            android:background="@drawable/baseline_currency_rupee_24"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <EditText
+            android:id="@+id/amountInput"
+            android:layout_width="@dimen/_286dp"
+            android:layout_height="@dimen/_64dp"
+            android:layout_marginStart="@dimen/_66dp"
+            android:layout_marginTop="@dimen/_148dp"
+            android:background="@android:color/transparent"
+            android:hint="@string/enter_amount"
+            android:inputType="numberDecimal"
+            android:text="@{viewModel.amount}"
+            android:textColor="@color/black"
+            android:textSize="@dimen/_40sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="@string/_556809" />
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_355dp"
+            android:layout_marginStart="@dimen/_3dp"
+            android:layout_marginTop="223dp"
+            android:layout_marginEnd="@dimen/_3dp"
+            android:background="@drawable/rectangle"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+
+            <AutoCompleteTextView
+                android:id="@+id/categoryDropdown"
+                style="@style/transactionsv"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_57dp"
+                android:layout_marginTop="@dimen/_42dp"
+                android:background="@drawable/border_style"
+                android:clickable="true"
+                android:focusable="true"
+                android:hint="@string/category"
+                android:inputType="none"
+                android:text="@{viewModel.category}"
+                android:textColorHint="@color/lightblk"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+
+            <EditText
+                android:id="@+id/descriptionInput"
+                style="@style/transactionsviews"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_57dp"
+                android:layout_marginTop="@dimen/_12dp"
+                android:background="@drawable/border_style"
+                android:hint="@string/description"
+                android:text="@{viewModel.description}"
+                android:textColorHint="@color/lightblk"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/categoryDropdown" />
+
+            <com.google.android.material.chip.ChipGroup
+                android:id="@+id/chipGroup"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/_91dp"
+                android:layout_marginTop="@dimen/_200dp"
+                android:orientation="horizontal"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:selectionRequired="true"
+                app:singleSelection="true">
+
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/chipIncome"
+                    style="@style/chipaddFrag"
+                    android:layout_marginEnd="@dimen/_16dp"
+                    android:gravity="center"
+                    android:paddingStart="@dimen/_24dp"
+                    android:paddingEnd="@dimen/_24dp"
+                    android:text="@string/income"
+                    android:textAlignment="center"
+                    app:checkedIconVisible="false"
+                    app:chipBackgroundColor="@color/chip_income_selector"
+                    app:chipCornerRadius="@dimen/_50dp" />
+
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/chipExpense"
+                    style="@style/chipaddFrag"
+                    android:gravity="center"
+                    android:paddingStart="@dimen/_24dp"
+                    android:paddingEnd="@dimen/_24dp"
+                    android:text="@string/expense"
+                    android:textAlignment="center"
+                    app:checkedIconVisible="false"
+                    app:chipBackgroundColor="@color/chip_expense_selector"
+                    app:chipCornerRadius="@dimen/_50dp" />
+
+            </com.google.android.material.chip.ChipGroup>
+
+            <AutoCompleteTextView
+                android:id="@+id/tvDate"
+                style="@style/transactionsviews"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_57dp"
+                android:layout_marginTop="@dimen/_279dp"
+                android:layout_marginBottom="@dimen/_30dp"
+                android:background="@drawable/border_style"
+                android:hint="@string/pick_your_date"
+                android:lineHeight="@dimen/_18dp"
+                android:text="@={viewModel.description}"
+                android:textColorHint="@color/lightblk"
+                android:textSize="@dimen/_18sp"
+                android:inputType="none"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="@string/pick_your_date" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/continueButton"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_56dp"
+            android:layout_marginLeft="@dimen/_10dp"
+            android:layout_marginRight="@dimen/_10dp"
+            android:layout_marginBottom="@dimen/_111dp"
+            android:paddingTop="@dimen/_12dp"
+            android:paddingBottom="@dimen/_12dp"
+            android:text="@string/continuee"
+            app:cornerRadius="@dimen/_16dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+
+            />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>
