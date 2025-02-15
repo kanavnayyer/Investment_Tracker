@@ -1,49 +1,47 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Investment Tracker</title>
-</head>
-<body>
-    <h1><strong>Investment Tracker</strong></h1>
+# Investment Tracker
 
-    <p><strong>Investment Tracker</strong> is an Android app that helps users manage their investments and expenses. It allows users to store their investments and expenses, categorize them, and view them in a variety of ways, such as monthly, weekly, or yearly. The app uses Room Database to store the data securely and efficiently.</p>
+**Investment Tracker** is an Android app that allows users to store and manage their investments and expenses. The app provides an intuitive interface to track financial data, visualize it with pie charts, and monitor progress with a progress bar.
 
-    <h2>Features</h2>
-    <ul>
-        <li><strong>Track Investments & Expenses:</strong> Users can add investments and expenses with descriptions, categories, and dates.</li>
-        <li><strong>Automatic Time Recording:</strong> The app automatically records the time when an investment or expense is entered.</li>
-        <li><strong>View Data by Month, Week, Year, or All Time:</strong> Users can view their investments and expenses categorized by different time frames.</li>
-        <li><strong>Pie Chart Visualization:</strong> The app provides a pie chart to show the distribution of expenses and income.</li>
-        <li><strong>Progress Bar for Expense Tracking:</strong> A progress bar shows how much of the user's total budget has been spent.</li>
-        <li><strong>Total Balance Calculation:</strong> Users can see the total balance after accounting for investments and expenses.</li>
-        <li><strong>Room Database:</strong> All data is securely stored in a local Room database.</li>
-    </ul>
+## Features
 
-    <h2>Screenshots</h2>
-    <p>Include screenshots here.</p>
+- **Track Investments & Expenses:** Users can add investments and expenses with descriptions, categories, and dates.
+- **Automatic Time Recording:** The app automatically records the current time when an investment or expense is entered.
+- **View Data by Month, Week, Year, or All Time:** Users can view their investments and expenses categorized by different time frames.
+- **Pie Chart Visualization:** The app provides a pie chart to show the distribution of expenses and income.
+- **Progress Bar for Expense Tracking:** A progress bar shows how much of the user's total budget has been spent.
+- **Total Balance Calculation:** Users can see the total balance after accounting for investments and expenses.
+- **Room Database:** All data is securely stored in a local Room database.
 
-    <h2>Technologies Used</h2>
-    <ul>
-        <li><strong>Kotlin:</strong> The app is written in Kotlin.</li>
-        <li><strong>XML:</strong> XML is used for designing the UI.</li>
-        <li><strong>Room Database:</strong> Used for storing data locally in a structured format.</li>
-        <li><strong>MPAndroidChart:</strong> Used for displaying pie charts of expenses and income.</li>
-    </ul>
+## Architecture
 
-    <h2>Setup</h2>
-    <ol>
-        <li>Clone the repository:</li>
-        <pre><code>git clone https://github.com/yourusername/investment-tracker.git</code></pre>
-        <li>Open the project in Android Studio.</li>
-        <li>Build and run the app on an Android device or emulator.</li>
-    </ol>
+The app follows **MVVM (Model-View-ViewModel)** architecture for better separation of concerns and testability. The **Navigation Component** with a **NavGraph** is used for managing app navigation and ensuring a streamlined flow between fragments and activities.
 
-    <h2>Contributing</h2>
-    <p>Feel free to fork the repository, make improvements, and submit pull requests. Ensure that you follow the code style and submit tests for any new features or bug fixes.</p>
+### Navigation Component & NavGraph
 
-    <h2>Contact</h2>
-    <p>For any questions or suggestions, feel free to reach out via [your email or GitHub contact info].</p>
-</body>
-</html>
+The app uses Android's **Navigation Component** to handle the app's navigation. The NavGraph is defined in a navigation XML file and is used to manage transitions between different fragments and activities, ensuring that the app’s flow is clear and maintainable.
+
+- **Fragments:** The app consists of multiple fragments, each handling specific features like displaying investments, expenses, or a pie chart.
+- **NavGraph:** The `nav_graph.xml` file defines all the navigation actions and directions between these fragments.
+- **Safe Args:** Safe Args plugin is used for type-safe navigation between fragments.
+
+This helps in managing the navigation flow easily, reducing the boilerplate code, and providing a clear structure for the app’s navigation.
+
+## Technologies Used
+
+- **Kotlin:** The app is written in Kotlin.
+- **XML:** XML is used for designing the UI.
+- **Room Database:** Used for storing data locally in a structured format.
+- **MPAndroidChart:** Used for displaying pie charts of expenses and income.
+- **Navigation Component:** For managing navigation between different screens.
+- **NavGraph:** XML file defining navigation actions and fragment transitions.
+
+## Setup
+
+1. Clone the repository:
+    ```bash
+    git clone https://github.com/yourusername/investment-tracker.git
+    ```
+2. Open the project in Android Studio.
+3. Build and run the app on an Android device or emulator.
+
+
