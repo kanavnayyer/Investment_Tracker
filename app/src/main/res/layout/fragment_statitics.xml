@@ -1,34 +1,109 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    >
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
 
 
 <LinearLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/background"
+    android:background="@drawable/backgroundight"
     android:orientation="vertical"
-    android:gravity="center"
     tools:context=".view.StatisticsFragment"
     android:padding="@dimen/_16dp">
 
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_32dp"
+
+
+        android:layout_marginEnd="@dimen/_9dp"
+     >
+
+        <View
+            android:layout_width="@dimen/_32dp"
+            android:layout_height="@dimen/_32dp"
+
+            android:background="@drawable/baseline_keyboard_backspace_24"
+            android:onClick="navigateHome"
+            android:backgroundTint="@android:color/black"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/_32dp"
+            android:layout_marginStart="48dp"
+            android:layout_marginEnd="@dimen/_48dp"
+            android:fontFamily="@font/inter_medium"
+            android:text="@string/financialreport"
+            android:textColor="@android:color/black"
+            android:textSize="@dimen/_18sp"
+            android:gravity="center"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
     <com.github.mikephil.charting.charts.PieChart
         android:id="@+id/pieChart"
-        android:layout_width="@dimen/_300dp"
+        android:layout_marginTop="@dimen/_90dp"
+        android:layout_width="match_parent"
         android:layout_height="@dimen/_300dp"
 
         android:background="@color/backgrn"/>
 
+    <RadioGroup
+        android:id="@+id/rgTimeFilter"
+android:layout_marginTop="@dimen/_40dp"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_48dp"
+        android:background="@drawable/radiogrpstat"
+        android:orientation="horizontal">
+
+        <RadioButton
+            android:id="@+id/rbExpense"
+            android:layout_width="@dimen/_0dp"
+            android:layout_height="@dimen/_48dp"
+            android:layout_weight="0.50"
+            android:background="@drawable/expenseback"
+            android:button="@null"
+            android:checked="true"
+            android:gravity="center"
+            android:text="@string/expense"
+            android:textColor="@drawable/drawable_units_tab_text_color_selector"
+            android:textSize="@dimen/_16sp" />
+
+        <RadioButton
+            android:id="@+id/rbWeek"
+            android:layout_width="@dimen/_0dp"
+            android:layout_height="@dimen/_48dp"
+            android:layout_weight="0.50"
+            android:background="@drawable/incomeback"
+            android:button="@null"
+            android:checked="false"
+            android:gravity="center"
+            android:text="@string/income"
+            android:textColor="@drawable/drawable_units_tab_text_color_selector"
+            android:textSize="@dimen/_16sp" />
+    </RadioGroup>
+
+<ScrollView
+    android:id="@+id/scrollView"
+    android:layout_marginTop="@dimen/_30dp"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingBottom="@dimen/_100dp">
+
 
     <LinearLayout
         android:id="@+id/legendContainer"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:layout_marginTop="@dimen/_16dp"/>
-
+        android:layout_marginTop="@dimen/_16dp"
+        android:orientation="vertical" />
+</ScrollView>
 </LinearLayout>
 </layout>

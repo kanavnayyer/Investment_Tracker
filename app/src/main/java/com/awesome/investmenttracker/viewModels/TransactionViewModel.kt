@@ -14,6 +14,7 @@ import com.awesome.investmenttracker.model.entities.CategoryTotal
 import com.awesome.investmenttracker.model.entities.TransactionResponse
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import java.text.NumberFormat
 import java.text.SimpleDateFormat
 import java.util.Calendar
 import java.util.Date
@@ -153,7 +154,12 @@ class TransactionViewModel(application: Application) : AndroidViewModel(applicat
             filterTransactionsByRange(startOfRange, endOfRange)
         }
     }
-
+    fun formatAmount(amount: Double?): String {
+        return amount?.let {
+            val formattedAmount = NumberFormat.getNumberInstance(Locale("en", "IN")).format(it)
+            "₹ $formattedAmount"
+        } ?: "₹ 0"
+    }
 
     private fun getStartOfRange(range: String): Long {
         val calendar = Calendar.getInstance()
@@ -229,6 +235,7 @@ class TransactionViewModel(application: Application) : AndroidViewModel(applicat
             SimpleDateFormat(appContext.resources.getString(R.string.hh_mm_a), Locale.getDefault())
         return sdf.format(Date())
     }
+
 
     private fun convertDateToMillis(dateString: String): Long {
         val sdf = SimpleDateFormat(

@@ -6,6 +6,7 @@ import android.text.SpannableStringBuilder
 import android.text.TextWatcher
 import android.view.MotionEvent
 import android.view.View
+import android.view.ViewGroup
 import android.view.inputmethod.InputMethodManager
 import android.widget.ArrayAdapter
 import android.widget.EditText
@@ -42,23 +43,34 @@ class AddTransactionActivity : AppCompatActivity() {
     }
 
     private fun setupCategoryDropdown() {
-        val categoryAdapter = ArrayAdapter(
-            this,
-            android.R.layout.simple_dropdown_item_1line,
-            viewModel.categories
-        )
+        val categoryAdapter = object : ArrayAdapter<String>(
+            this, R.layout.custom_dropdown_item, viewModel.categories
+        ) {
+            override fun getView(position: Int, convertView: View?, parent: ViewGroup): View {
+                val view = super.getView(position, convertView, parent)
+                if (viewModel.category.value == getItem(position)) {
+                    view.setBackgroundResource(R.drawable.selected_item_border)
+                } else {
+                    view.setBackgroundResource(R.drawable.default_item_background)
+                }
+                return view
+            }
+        }
 
         binding.categoryDropdown.setAdapter(categoryAdapter)
 
         binding.categoryDropdown.setOnItemClickListener { _, _, position, _ ->
             val selectedCategory = viewModel.categories[position]
+            binding.categoryDropdown.setText(selectedCategory, false)
             viewModel.setCategory(selectedCategory)
+            categoryAdapter.notifyDataSetChanged()
         }
 
         binding.categoryDropdown.setOnClickListener {
             binding.categoryDropdown.showDropDown()
         }
     }
+
 
     private fun setupInputListeners() {
         binding.descriptionInput.addTextChangedListener(object : TextWatcher {

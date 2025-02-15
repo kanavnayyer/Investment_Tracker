@@ -21,7 +21,7 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="@dimen/_32dp"
-            android:layout_marginStart="@dimen/_9dp"
+            android:layout_marginStart="@dimen/_14dp"
             android:layout_marginTop="@dimen/_19dp"
             android:layout_marginEnd="@dimen/_9dp"
             app:layout_constraintEnd_toEndOf="parent"
@@ -58,7 +58,7 @@
             android:layout_marginStart="@dimen/_21dp"
             android:layout_marginTop="@dimen/_111dp"
             android:text="@string/how_much"
-            android:textColor="@color/darkgry"
+            android:textColor="@color/black"
             android:textSize="@dimen/_18sp"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
@@ -69,6 +69,7 @@
             android:layout_height="@dimen/_66dp"
             android:layout_marginStart="@dimen/_10dp"
             android:layout_marginTop="@dimen/_142dp"
+            android:backgroundTint="@color/black"
             android:background="@drawable/baseline_currency_rupee_24"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -94,10 +95,10 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="@dimen/_355dp"
-            android:layout_marginStart="@dimen/_3dp"
+            android:layout_marginStart="@dimen/_4dp"
             android:layout_marginTop="223dp"
-            android:layout_marginEnd="@dimen/_3dp"
-            android:background="@drawable/rectangle"
+            android:layout_marginEnd="@dimen/_4dp"
+            android:background="@drawable/backgroundwhite"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">

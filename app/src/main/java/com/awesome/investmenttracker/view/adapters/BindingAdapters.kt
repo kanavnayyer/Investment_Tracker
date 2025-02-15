@@ -12,12 +12,15 @@ import com.awesome.investmenttracker.util.Constants.amountColor
 import com.awesome.investmenttracker.util.Constants.doubleText
 
 import com.awesome.investmenttracker.util.Constants.formattedAmount
+import com.awesome.investmenttracker.util.Constants.formattedAmountNoc
 import com.awesome.investmenttracker.util.Constants.formattedTime
 import com.awesome.investmenttracker.util.Constants.transactionBackground
 import com.awesome.investmenttracker.util.Constants.transactionTypeBackground
 import com.awesome.investmenttracker.util.Constants.transactionTypeIcon
+import java.text.NumberFormat
 import java.text.SimpleDateFormat
 import java.util.Locale
+import kotlin.math.sign
 
 object BindingAdapters {
 
@@ -40,11 +43,24 @@ object BindingAdapters {
     @BindingAdapter(formattedAmount)
     fun setFormattedAmount(view: TextView, transaction: TransactionResponse?) {
         transaction?.let {
-            val sign = if (it.type == view.context.getString(R.string.expens_e)) "- " else "+ "
-            view.text = sign + it.amount.toString()
+            val sign = if (it.type == view.context.getString(R.string.expens_e)) "- ₹ " else "+ ₹ "
+
+            val formattedAmount = NumberFormat.getNumberInstance(Locale("en", "IN")).format(it.amount)
+
+            view.text = "$sign$formattedAmount"
         }
     }
 
+
+
+    @JvmStatic
+    @BindingAdapter(formattedAmountNoc)
+    fun setFormattedAmountNoc(view: TextView, amount: Double?) {
+        amount?.let {
+            val formattedAmount = NumberFormat.getNumberInstance(Locale("en", "IN")).format(it)
+            view.text = "₹ $formattedAmount"
+        }
+    }
     @JvmStatic
     @BindingAdapter(formattedTime)
     fun setFormattedTime(view: TextView, time: String?) {

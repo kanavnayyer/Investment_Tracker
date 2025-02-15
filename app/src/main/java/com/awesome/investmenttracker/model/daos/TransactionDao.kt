@@ -47,8 +47,16 @@ interface TransactionDao {
     @Query("SELECT * FROM transactions WHERE date >= strftime('%s', 'now', '-1 month') * 1000 ORDER BY date DESC, time DESC")
     fun getLastMonthTransactions(): LiveData<List<TransactionResponse>>
 
-    @Query("SELECT category, SUM(amount) as total FROM transactions GROUP BY category")
+
+    @Query(
+        """
+    SELECT category, SUM(amount) as total, type 
+    FROM transactions 
+    GROUP BY category, type
+"""
+    )
     fun getCategoryTotals(): LiveData<List<CategoryTotal>>
+
 
     @Query("SELECT * FROM transactions WHERE category LIKE '%' || :query || '%' OR description LIKE '%' || :query || '%' ORDER BY date DESC")
     suspend fun searchTransactions(query: String): List<TransactionResponse>

@@ -10,4 +10,5 @@ object Constants {
     const val transactionTypeBackground="transactionTypeBackground"
     const val transactionBackground="transactionBackground"
     const val doubleText="doubleText"
+    const val formattedAmountNoc="formattedAmountNoc"
 }

@@ -2,6 +2,7 @@ package com.awesome.investmenttracker.model.entities
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey
+import java.math.BigDecimal
 
 @Entity(tableName = "transactions")
 data class TransactionResponse(

@@ -40,8 +40,8 @@
         android:layout_height="wrap_content"
         android:paddingStart="@dimen/_15dp"
         tools:text="@string/_5000"
-        android:text='@{"₹ " +transaction.amount}'
-        android:textColor="@android:color/black"
+        app:formattedAmountNoc='@{transaction.amount}'
+        android:textColor="@color/black"
         android:textSize="@dimen/_18sp"
         android:textStyle="bold"
 android:layout_marginStart="@dimen/_57dp"
@@ -55,7 +55,7 @@ android:layout_marginStart="@dimen/_57dp"
         android:layout_height="wrap_content"
         android:text="@{transaction.category}"
         tools:text="@string/food"
-        android:textColor="@android:color/black"
+        android:textColor="@color/black"
         android:textSize="@dimen/_14sp"
 
         android:layout_marginEnd="@dimen/_14dp"

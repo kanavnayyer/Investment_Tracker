@@ -1,8 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-
-        <color name="black">#FFFFFF</color>
-        <color name="white">#000000</color>
-
-
+        <color name="black">#FFFFFFFF</color>
+        <color name="white">#FF000000</color>
+        <color name="purple">#80C2FF</color>
+        <color name="darkc">#576969</color>
+        <color name="drkblk">#ADADAD</color>
+        <color name="light_gry">#262626</color>
+        <color name="green">#00A86B</color>
+        <color name="red">#FD3C4A</color>
+        <color name="lightblk">#6E6E60</color>
+        <color name="lightwhite">#25231F</color>
+        <color name="lightt_grey">#7F262626</color>
+        <color name="whitew">#000000</color>
+        <color name="backgrn">#00091A</color>
+        <color name="darkgry">#5CF5FFFF</color>
+        <color name="lghtg">#6E6E60</color>
+        <color name="customblk">#E9E8E6</color>
+        <color name="customwhite">#030303</color>
+        <color name="light_grey">#393939</color>
 </resources>

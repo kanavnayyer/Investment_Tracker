@@ -11,13 +11,13 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@drawable/background"
-        android:fitsSystemWindows="true"
+
         tools:context=".view.TransactionsFragment">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="@dimen/_32dp"
-            android:layout_marginStart="@dimen/_9dp"
+
             android:layout_marginTop="@dimen/_19dp"
             android:layout_marginEnd="@dimen/_9dp"
             app:layout_constraintEnd_toEndOf="parent"
@@ -27,7 +27,7 @@
             <View
                 android:layout_width="@dimen/_32dp"
                 android:layout_height="@dimen/_32dp"
-                android:layout_marginStart="@dimen/_17dp"
+                android:layout_marginStart="@dimen/_15dp"
                 android:background="@drawable/baseline_keyboard_backspace_24"
                 android:onClick="navigateHome"
                 android:backgroundTint="@android:color/black"
@@ -88,6 +88,7 @@
             android:layout_marginEnd="@dimen/_15dp"
             android:background="@drawable/bg_unselected"
             android:drawableStart="@drawable/baseline_search_24"
+
             android:hint="@string/search"
             android:maxLength="10"
             android:paddingStart="@dimen/_5dp"

@@ -62,4 +62,9 @@
     <string name="hh_mm_ss">HH:mm:ss</string>
     <string name="hh_mm_aa">hh:mm a</string>
     <string name="_0_0">0.0</string>
+    <string name="financialreport">Financial Report</string>
+    <string name="_0vvvvv">₹0vvvvv</string>
+    <string name="category_name">Category Name</string>
+    <string name="sans_serif_medium">sans-serif-medium</string>
+    <string name="expense__">Expense</string>
 </resources>
