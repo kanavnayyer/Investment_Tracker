@@ -8,8 +8,10 @@ import androidx.core.content.ContextCompat
 import androidx.databinding.BindingAdapter
 import com.awesome.investmenttracker.R
 import com.awesome.investmenttracker.model.entities.TransactionResponse
+import com.awesome.investmenttracker.util.Constants.IN
 import com.awesome.investmenttracker.util.Constants.amountColor
 import com.awesome.investmenttracker.util.Constants.doubleText
+import com.awesome.investmenttracker.util.Constants.en
 
 import com.awesome.investmenttracker.util.Constants.formattedAmount
 import com.awesome.investmenttracker.util.Constants.formattedAmountNoc
@@ -57,7 +59,7 @@ object BindingAdapters {
     @BindingAdapter(formattedAmountNoc)
     fun setFormattedAmountNoc(view: TextView, amount: Double?) {
         amount?.let {
-            val formattedAmount = NumberFormat.getNumberInstance(Locale("en", "IN")).format(it)
+            val formattedAmount = NumberFormat.getNumberInstance(Locale(en, IN)).format(it)
             view.text = "₹ $formattedAmount"
         }
     }

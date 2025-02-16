@@ -41,47 +41,93 @@ class StatisticsFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         radioGroup = binding.root.findViewById(R.id.rgTimeFilter)
+
         radioGroup.setOnCheckedChangeListener { _, checkedId ->
             val selectedButton = view.findViewById<RadioButton>(checkedId)
+
+            // Scroll to the top immediately when switching the button
+            binding.scrollView.scrollTo(0, 0)
+
             when (selectedButton.id) {
                 R.id.rbExpense -> {
-                    binding.scrollView.fullScroll(View.FOCUS_UP)
-                    viewModel.categoryTotals.observe(viewLifecycleOwner) { categoryTotals ->
-                        val filteredExpense = categoryTotals.filter { it.type == getString(R.string.expense) }
-                        setupPieChart(filteredExpense, getString(R.string.expense))
-                        setupLegend(
-                            filteredExpense,
-                            filteredExpense.sumOf { it.total },
-                            generateColors(filteredExpense.size)
-                        )
+                    val filteredExpense = viewModel.categoryTotals.value?.filter { it.type == getString(R.string.expense) }
+                    filteredExpense?.let {
+                        setupPieChart(it, getString(R.string.expense))
+                        setupLegend(it, it.sumOf { category -> category.total }, generateColors(it.size))
                     }
                 }
 
                 R.id.rbWeek -> {
-                    binding.scrollView.fullScroll(View.FOCUS_UP)
-                    viewModel.categoryTotals.observe(viewLifecycleOwner) { categoryTotals ->
-                        val filteredIncome = categoryTotals.filter { it.type == getString(R.string.income) }
-                        setupPieChart(filteredIncome, getString(R.string.income))
-                        setupLegend(
-                            filteredIncome,
-                            filteredIncome.sumOf { it.total },
-                            generateColors(filteredIncome.size)
-                        )
+                    val filteredIncome = viewModel.categoryTotals.value?.filter { it.type == getString(R.string.income) }
+                    filteredIncome?.let {
+                        setupPieChart(it, getString(R.string.income))
+                        setupLegend(it, it.sumOf { category -> category.total }, generateColors(it.size))
                     }
                 }
             }
         }
 
+        // Observe category totals only once and filter data based on selection
         viewModel.categoryTotals.observe(viewLifecycleOwner) { categoryTotals ->
-            val filteredExpense = categoryTotals.filter { it.type == getString(R.string.expense) }
-            setupPieChart(filteredExpense, getString(R.string.expense))
-            setupLegend(
-                filteredExpense,
-                filteredExpense.sumOf { it.total },
-                generateColors(filteredExpense.size)
-            )
+            if (radioGroup.checkedRadioButtonId == R.id.rbExpense) {
+                val filteredExpense = categoryTotals.filter { it.type == getString(R.string.expense) }
+                setupPieChart(filteredExpense, getString(R.string.expense))
+                setupLegend(filteredExpense, filteredExpense.sumOf { category -> category.total }, generateColors(filteredExpense.size))
+            } else {
+                val filteredIncome = categoryTotals.filter { it.type == getString(R.string.income) }
+                setupPieChart(filteredIncome, getString(R.string.income))
+                setupLegend(filteredIncome, filteredIncome.sumOf { category -> category.total }, generateColors(filteredIncome.size))
+            }
         }
     }
+
+
+
+//    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+//        super.onViewCreated(view, savedInstanceState)
+//
+//        radioGroup = binding.root.findViewById(R.id.rgTimeFilter)
+//        radioGroup.setOnCheckedChangeListener { _, checkedId ->
+//            val selectedButton = view.findViewById<RadioButton>(checkedId)
+//            when (selectedButton.id) {
+//                R.id.rbExpense -> {
+//                    binding.scrollView.fullScroll(View.FOCUS_UP)
+//                    viewModel.categoryTotals.observe(viewLifecycleOwner) { categoryTotals ->
+//                        val filteredExpense = categoryTotals.filter { it.type == getString(R.string.expense) }
+//                        setupPieChart(filteredExpense, getString(R.string.expense))
+//                        setupLegend(
+//                            filteredExpense,
+//                            filteredExpense.sumOf { it.total },
+//                            generateColors(filteredExpense.size)
+//                        )
+//                    }
+//                }
+//
+//                R.id.rbWeek -> {
+//                    binding.scrollView.fullScroll(View.FOCUS_UP)
+//                    viewModel.categoryTotals.observe(viewLifecycleOwner) { categoryTotals ->
+//                        val filteredIncome = categoryTotals.filter { it.type == getString(R.string.income) }
+//                        setupPieChart(filteredIncome, getString(R.string.income))
+//                        setupLegend(
+//                            filteredIncome,
+//                            filteredIncome.sumOf { it.total },
+//                            generateColors(filteredIncome.size)
+//                        )
+//                    }
+//                }
+//            }
+//        }
+//
+//        viewModel.categoryTotals.observe(viewLifecycleOwner) { categoryTotals ->
+//            val filteredExpense = categoryTotals.filter { it.type == getString(R.string.expense) }
+//            setupPieChart(filteredExpense, getString(R.string.expense))
+//            setupLegend(
+//                filteredExpense,
+//                filteredExpense.sumOf { it.total },
+//                generateColors(filteredExpense.size)
+//            )
+//        }
+//    }
 
     private fun setupPieChart(data: List<CategoryTotal>, chartType: String) {
         if (data.isEmpty()) {

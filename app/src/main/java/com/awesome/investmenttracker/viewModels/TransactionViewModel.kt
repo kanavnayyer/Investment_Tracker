@@ -56,7 +56,6 @@ class TransactionViewModel(application: Application) : AndroidViewModel(applicat
     val categories = listOf(
         appContext.getString(R.string.salary),
         appContext.getString(R.string.business),
-        appContext.getString(R.string.investment),
         appContext.getString(shopping),
         appContext.getString(R.string.Other),
         appContext.getString(R.string.transport_)

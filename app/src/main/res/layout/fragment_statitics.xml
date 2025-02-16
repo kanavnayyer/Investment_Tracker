@@ -97,7 +97,6 @@ android:layout_marginTop="@dimen/_40dp"
     android:layout_height="wrap_content"
     android:paddingBottom="@dimen/_100dp">
 
-
     <LinearLayout
         android:id="@+id/legendContainer"
         android:layout_width="match_parent"

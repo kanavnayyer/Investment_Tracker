@@ -85,6 +85,7 @@
             android:inputType="numberDecimal"
             android:text="@{viewModel.amount}"
             android:textColor="@color/black"
+            android:maxLength="6"
             android:textSize="@dimen/_40sp"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
