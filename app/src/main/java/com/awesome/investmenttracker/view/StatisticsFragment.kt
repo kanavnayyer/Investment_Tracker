@@ -7,6 +7,7 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.ProgressBar
 import android.widget.RadioButton
 import android.widget.RadioGroup
@@ -45,7 +46,6 @@ class StatisticsFragment : Fragment() {
         radioGroup.setOnCheckedChangeListener { _, checkedId ->
             val selectedButton = view.findViewById<RadioButton>(checkedId)
 
-            // Scroll to the top immediately when switching the button
             binding.scrollView.scrollTo(0, 0)
 
             when (selectedButton.id) {
@@ -67,7 +67,6 @@ class StatisticsFragment : Fragment() {
             }
         }
 
-        // Observe category totals only once and filter data based on selection
         viewModel.categoryTotals.observe(viewLifecycleOwner) { categoryTotals ->
             if (radioGroup.checkedRadioButtonId == R.id.rbExpense) {
                 val filteredExpense = categoryTotals.filter { it.type == getString(R.string.expense) }
@@ -83,51 +82,6 @@ class StatisticsFragment : Fragment() {
 
 
 
-//    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-//        super.onViewCreated(view, savedInstanceState)
-//
-//        radioGroup = binding.root.findViewById(R.id.rgTimeFilter)
-//        radioGroup.setOnCheckedChangeListener { _, checkedId ->
-//            val selectedButton = view.findViewById<RadioButton>(checkedId)
-//            when (selectedButton.id) {
-//                R.id.rbExpense -> {
-//                    binding.scrollView.fullScroll(View.FOCUS_UP)
-//                    viewModel.categoryTotals.observe(viewLifecycleOwner) { categoryTotals ->
-//                        val filteredExpense = categoryTotals.filter { it.type == getString(R.string.expense) }
-//                        setupPieChart(filteredExpense, getString(R.string.expense))
-//                        setupLegend(
-//                            filteredExpense,
-//                            filteredExpense.sumOf { it.total },
-//                            generateColors(filteredExpense.size)
-//                        )
-//                    }
-//                }
-//
-//                R.id.rbWeek -> {
-//                    binding.scrollView.fullScroll(View.FOCUS_UP)
-//                    viewModel.categoryTotals.observe(viewLifecycleOwner) { categoryTotals ->
-//                        val filteredIncome = categoryTotals.filter { it.type == getString(R.string.income) }
-//                        setupPieChart(filteredIncome, getString(R.string.income))
-//                        setupLegend(
-//                            filteredIncome,
-//                            filteredIncome.sumOf { it.total },
-//                            generateColors(filteredIncome.size)
-//                        )
-//                    }
-//                }
-//            }
-//        }
-//
-//        viewModel.categoryTotals.observe(viewLifecycleOwner) { categoryTotals ->
-//            val filteredExpense = categoryTotals.filter { it.type == getString(R.string.expense) }
-//            setupPieChart(filteredExpense, getString(R.string.expense))
-//            setupLegend(
-//                filteredExpense,
-//                filteredExpense.sumOf { it.total },
-//                generateColors(filteredExpense.size)
-//            )
-//        }
-//    }
 
     private fun setupPieChart(data: List<CategoryTotal>, chartType: String) {
         if (data.isEmpty()) {
@@ -176,13 +130,13 @@ class StatisticsFragment : Fragment() {
             val legendItem = LayoutInflater.from(requireContext())
                 .inflate(R.layout.item_legend, binding.legendContainer, false)
 
-            val colorView = legendItem.findViewById<View>(R.id.legendColor)
+            val colorView = legendItem.findViewById<ImageView>(R.id.legendColor)
             val textView = legendItem.findViewById<TextView>(R.id.legendText)
             val progressBar = legendItem.findViewById<ProgressBar>(R.id.legendProgressBar)
             val amountTextView = legendItem.findViewById<TextView>(R.id.legendAmount)
 
             val categoryColor = colors[index % colors.size]
-            colorView.setBackgroundColor(categoryColor)
+            colorView.setColorFilter(categoryColor)
             textView.text = categoryTotal.category
             amountTextView.text = viewModel.formatAmount(categoryTotal.total)
 

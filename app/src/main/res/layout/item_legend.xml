@@ -19,13 +19,13 @@ android:layout_marginBottom="@dimen/_30dp"
         android:background="@drawable/backgroundstatis"
         android:gravity="center_vertical">
 
-        <View
+        <ImageView
             android:id="@+id/legendColor"
             android:layout_width="@dimen/_20dp"
             android:layout_height="@dimen/_20dp"
             android:layout_marginEnd="@dimen/_12dp"
 
-            android:background="@drawable/circle_view" />
+            android:src="@drawable/circle_view" />
 
         <TextView
             android:id="@+id/legendText"

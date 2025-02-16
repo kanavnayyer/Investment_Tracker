@@ -29,6 +29,7 @@
         app:transactionTypeIcon="@{transaction.type}"
         app:transactionTypeBackground="@{transaction.type}"
         android:scaleType="centerInside"
+
         tools:src="@drawable/baseline_arrow_downward_24"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
