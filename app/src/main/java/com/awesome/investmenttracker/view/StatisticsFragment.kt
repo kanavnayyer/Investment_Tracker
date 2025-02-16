@@ -161,4 +161,9 @@ class StatisticsFragment : Fragment() {
             List(size) { Color.rgb((0..255).random(), (0..255).random(), (0..255).random()) }
         }
     }
+
+    override fun onResume() {
+        super.onResume()
+
+    }
 }

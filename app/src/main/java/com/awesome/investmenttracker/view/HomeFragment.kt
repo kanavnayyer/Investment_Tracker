@@ -53,6 +53,11 @@ class HomeFragment : Fragment() {
         }
     }
 
+    override fun onResume() {
+        super.onResume()
+        viewModel.loadTransactions(getString(R.string.today_))
+    }
+
 }
 
 

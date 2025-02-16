@@ -49,8 +49,8 @@
         <item name="android:paddingTop">@dimen/_12dp</item>
         <item name="android:paddingBottom">@dimen/_12dp</item>
         <item name="android:paddingLeft">@dimen/_16dp</item>
-        <item name="android:layout_marginRight">@dimen/_9dp</item>
-        <item name="android:layout_marginLeft">@dimen/_21dp</item>
+        <item name="android:layout_marginRight">@dimen/_15dp</item>
+        <item name="android:layout_marginLeft">@dimen/_15dp</item>
         <item name="android:paddingRight">@dimen/_16dp</item>
     </style>
 

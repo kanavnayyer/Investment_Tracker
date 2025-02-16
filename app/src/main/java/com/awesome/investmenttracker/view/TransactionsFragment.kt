@@ -102,4 +102,9 @@ class TransactionsFragment : Fragment() {
         val query = binding.descriptionInput.text.toString().trim()
         viewModel.searchTransactions(query)
     }
+
+    override fun onResume() {
+        super.onResume()
+        showData()
+    }
 }

@@ -8,7 +8,7 @@
 <LinearLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/backgroundight"
+    android:background="@drawable/background"
     android:orientation="vertical"
     tools:context=".view.StatisticsFragment"
     android:padding="@dimen/_16dp">
@@ -52,8 +52,8 @@
         android:layout_marginTop="@dimen/_90dp"
         android:layout_width="match_parent"
         android:layout_height="@dimen/_300dp"
-
-        android:background="@color/backgrn"/>
+        android:background="@drawable/backgroundgry"
+    />
 
     <RadioGroup
         android:id="@+id/rgTimeFilter"
